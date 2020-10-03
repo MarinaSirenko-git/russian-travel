@@ -29,6 +29,7 @@
   -moz-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
   max-width: 1280px;
+  min-width: 320px;
   width: 100%;
   padding-left: 48px;
   padding-right: 48px;
@@ -58,6 +59,7 @@
   color: #fff;
   text-decoration: none;
   position: relative;
+  transition: all 0.3s ease;
 }
 
 .logo__lang-link_active::after {
@@ -69,6 +71,10 @@
   position: absolute;
   top: 30px;
   left: 0;
+}
+
+.logo__lang-link:hover {
+  opacity: 0.8;
 }
 
 .lead {
@@ -152,6 +158,7 @@
   display: grid;
   grid-template-rows: repeat(3, auto);
   grid-template-columns: repeat(4, auto);
+  grid-auto-rows: 1fr;
   gap: 16px;
 }
 
@@ -160,34 +167,63 @@
   object-fit: cover;
 }
 
+.places {
+  max-width: 984px;
+  margin: 90px auto 90px;
+}
+
+.place {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(min-content, max-content));
+  grid-template-rows: 1fr min-content;
+  gap: 40px;
+  grid-template-areas:
+      "title link"
+      "image paragraph";
+  margin-bottom: 80px;
+}
+
 .place__title {
   font-size: 72px;
   font-weight: 900;
-  line-height: 1.05;
+  line-height: 1.15;
   color: #fff;
   max-width: 460px;
+  grid-area: title;
+  margin: 0;
 }
 
 .place__image {
-  width: 460px;
-  height: 460px;
+  max-width: 460px;
+  width: 100%;
+  object-fit: cover;
+  grid-area: image;
+}
+
+.place__website {
+  grid-area: link;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: self-end;
 }
 
 .place__url-heading {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 400;
   line-height: 1.4;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: #fff;
+  letter-spacing: 0.2em;
+  color: #AAAAAA;
 }
 
 .place__link {
   font-size: 18px;
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.85;
   color: #fff;
   text-decoration: none;
+  margin-top: 5px;
   transition: all 0.3s ease;
   position: relative;
 }
@@ -199,7 +235,7 @@
   display: block;
   background-color: #FFF;
   position: absolute;
-  top: 21px;
+  top: 26px;
   left: 0;
 }
 
@@ -207,11 +243,20 @@
   opacity: 0.8;
 }
 
+.place__paragraph-wrap {
+  grid-area: paragraph;
+}
+
 .place__paragraph {
   font-size: 18px;
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.63;
   color: #fff;
+  margin: 0;
+}
+
+.place__paragraph_top {
+  margin-bottom: 24px;
 }
 
 .cover {
@@ -269,7 +314,7 @@
   justify-content: space-between;
   align-items: center;
   padding-bottom: 24px;
-  margin-top: 90px;
+  margin-top: 80px;
 }
 
 .footer__nav {
