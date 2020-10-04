@@ -1,0 +1,16 @@
+.place__image {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  max-width: 460px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  grid-area: image;
+}
+
+@media screen and (max-width: 767px) {
+  .place__image {
+    max-width: 100%;
+    width: 100%;
+  }
+}
